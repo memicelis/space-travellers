@@ -1,11 +1,11 @@
-import React from "react";
+import React from 'react';
 
-const Rockets = () =>(
-    
-    <div>
-        Rockets
-    </div>
-    
+const Rockets = () => (
+
+  <div>
+    Rockets
+  </div>
+
 );
 
 export default Rockets;

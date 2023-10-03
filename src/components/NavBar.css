@@ -1,22 +1,22 @@
-.navBar{
-    display: flex;
-    justify-content: space-between;
+.navBar {
+  display: flex;
+  justify-content: space-between;
 }
 
-.leftSideContainer{
-    display: flex;
+.leftSideContainer {
+  display: flex;
 }
 
-.rightSideContainer{
-    list-style: none;
-    display: flex;
-    gap:10px;
+.rightSideContainer {
+  list-style: none;
+  display: flex;
+  gap: 10px;
 }
 
-.active{
-    text-decoration: underline;
+.active {
+  text-decoration: underline;
 }
 
-a{
-    text-decoration: none;
+a {
+  text-decoration: none;
 }
