@@ -8,9 +8,8 @@ const Rockets = () => {
 
   useEffect(() => {
     dispatch(fetchRockets());
-  }, []);
+  }, [dispatch]);
 
-  console.log(rocketsData);
   const handleReserveClick = (rocketId) => {
     dispatch(reserveRocket({ rocketId }));
   };
@@ -20,9 +19,9 @@ const Rockets = () => {
   };
   return (
     <div className="flex">
-      {rocketsData ? (
+      {firstThreeRockets ? (
         <ul className="flex flex-col gap-6 p-6">
-          {rocketsData.map((rocket) => (
+          {rocketsData.slice(0,3).map((rocket) => (
             <li className="flex gap-2 max-w-full p-6" key={rocket.id}>
               <div className="w-1/4 flex items-center justify-center">
                 {rocket.flickr_images.length > 0 && (
