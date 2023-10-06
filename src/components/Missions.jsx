@@ -3,12 +3,15 @@ import { useSelector, useDispatch } from 'react-redux';
 import { fetchMissions, joinMission, cancelMission } from '../redux/missions/missionSlice';
 
 const Missions = () => {
-  const missionsData = useSelector((state) => state.missions);
+  const missionsData = useSelector((state) => state.missions.data);
+  const isFetched = useSelector((state) => state.missions.isFetched);
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(fetchMissions());
-  }, [dispatch]);
+    if (!isFetched) {
+      dispatch(fetchMissions());
+    }
+  }, [dispatch, isFetched]);
 
   const handleJoinClick = (missionId) => {
     dispatch(joinMission({ missionId }));
