@@ -11,7 +11,6 @@ export const fetchMissions = createAsyncThunk('missions/fetchMissions', async ()
     name: mission.mission_name,
     description: mission.description,
   }));
-  console.log(transformedData);
   return transformedData;
 });
 
