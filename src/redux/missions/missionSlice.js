@@ -39,7 +39,7 @@ const missionsSlice = createSlice({
     cancelMission: (state, action) => {
       const { missionId } = action.payload;
       const updatedMissions = state.data.map((mission) => {
-        if (mission.id === missionId && mission.joined !== true) {
+        if (mission.id === missionId && mission.joined !== false) {
           return { ...mission, joined: false };
         }
         return mission;

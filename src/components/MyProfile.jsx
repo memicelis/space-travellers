@@ -4,8 +4,6 @@ import { useSelector } from 'react-redux';
 const MyProfile = () => {
   const rockets = useSelector((state) => state.rockets.data);
   const missions = useSelector((state) => state.missions.data);
-  console.log(rockets.filter((rocket) => rocket.reserved));
-  console.log(missions);
   return (
 
     <div className="flex w-full px-12 py-8 gap-6">
