@@ -3,13 +3,16 @@ import { useSelector, useDispatch } from 'react-redux';
 import { fetchRockets, reserveRocket, cancelRocket } from '../redux/rockets/rocketsSlice';
 
 const Rockets = () => {
-  const rocketsData = useSelector((state) => state.rockets);
+  const rocketsData = useSelector((state) => state.rockets.data);
+  const isFetched = useSelector((state) => state.rockets.isFetched);
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(fetchRockets());
-  }, [dispatch]);
-
+    if (!isFetched) {
+      dispatch(fetchRockets());
+    }
+  },
+  [dispatch, isFetched]);
   const handleReserveClick = (rocketId) => {
     dispatch(reserveRocket({ rocketId }));
   };
@@ -29,7 +32,7 @@ const Rockets = () => {
                 )}
               </div>
               <div className="flex flex-col w-3/4 text-start gap-3">
-                <h2 className="font-bold">{rocket.rocket_name}</h2>
+                <h2 className="font-bold">{rocket.name}</h2>
                 <p>
                   {rocket.reserved ? (
                     <span className="bg-blue-500 text-white w-auto rounded-md p-1 mr-2">
